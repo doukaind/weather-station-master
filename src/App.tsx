@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import "./App.css";
-import { Layout } from "./layout/Layout";
+
+import Layout from "./layout/Layout";
 import theme from "./schemas/theme";
 import GlobalStyled from "./styles/global";
 
