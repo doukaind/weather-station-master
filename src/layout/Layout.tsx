@@ -3,7 +3,7 @@ import Main from "../common/main/Main";
 import Aside from "../common/aside/Aside";
 import LayoutWrapper from "./LayoutWrapper";
 
-export const Layout = () => {
+const Layout = () => {
   return (
     <LayoutWrapper>
       <Aside />
@@ -11,3 +11,5 @@ export const Layout = () => {
     </LayoutWrapper>
   );
 };
+
+export default Layout;
