@@ -1,4 +1,10 @@
-const theme = {
+export type Theme = {
+  color: Record<string, string>;
+  size: Record<"font" | "space", Record<string, string>>;
+  shadow: string;
+};
+
+const theme: Theme = {
   color: {
     blueBase: "#1E213A",
     blueDark: "#100E1D",
