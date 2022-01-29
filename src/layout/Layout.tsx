@@ -1,13 +1,18 @@
 import React from "react";
 import Main from "../common/main/Main";
-import Aside from "../common/aside/Aside";
+import Sidebar from "../common/aside/Sidebar";
 import LayoutWrapper from "./LayoutWrapper";
+import Home from "../routes/home/Home";
 
-const Layout = () => {
+type LayoutProps = {
+  children: JSX.Element;
+};
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <LayoutWrapper>
-      <Aside />
-      <Main></Main>
+      <Sidebar />
+      <Main>{children}</Main>
     </LayoutWrapper>
   );
 };
