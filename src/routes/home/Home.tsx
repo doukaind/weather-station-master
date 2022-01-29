@@ -1,7 +1,12 @@
 import React from "react";
+import { DailyWeather } from "../../components/dailyWeather/DailyWeather";
 
 const Home = () => {
-  return <div>HOME</div>;
+  return (
+    <>
+      <DailyWeather />
+    </>
+  );
 };
 
 export default Home;
