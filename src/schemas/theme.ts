@@ -1,10 +1,43 @@
+import { DefaultTheme } from "styled-components";
+
+type Colors =
+  | "blueBase"
+  | "blueDark"
+  | "greyLight"
+  | "greyBase"
+  | "greyDark"
+  | "greyDarkness"
+  | "yellowBase"
+  | "stateBase"
+  | "stateText"
+  | "blueLight";
+
+type Sizes =
+  | "xs"
+  | "sm"
+  | "md"
+  | "lg"
+  | "xl"
+  | "xxl"
+  | "x3"
+  | "x4"
+  | "x8"
+  | "x9";
+
+// Mapped Color & Size types
+type Color = { [k in Colors]?: string };
+type Size = {
+  font: { [k in Sizes]?: string };
+  space: { [k in Sizes]?: string };
+};
+
 export type Theme = {
-  color: Record<string, string>;
-  size: Record<"font" | "space", Record<string, string>>;
+  color: Color;
+  size: Size;
   shadow: string;
 };
 
-const theme: Theme = {
+const theme = {
   color: {
     blueBase: "#1E213A",
     blueDark: "#100E1D",
@@ -37,11 +70,10 @@ const theme: Theme = {
       xxl: "2rem", // 32px,
       x3: "3rem", // 48px
       x4: "4rem", // 64px
-      xxxxxl: "4.5rem", // 72px
       x8: "8rem", // 128px
     },
   },
   shadow: "0px 4px 4px 0px rgba(0,0,0,0.25)",
-};
+} as const;
 
 export default theme;
