@@ -1,18 +1,39 @@
 import "styled-components";
-interface IPalette {
-  main: string;
-  contrastText: string;
-}
+type Colors =
+  | "blueBase"
+  | "blueDark"
+  | "greyLight"
+  | "greyBase"
+  | "greyDark"
+  | "greyDarkness"
+  | "yellowBase"
+  | "stateBase"
+  | "stateText"
+  | "blueLight";
+
+type Sizes =
+  | "xs"
+  | "sm"
+  | "md"
+  | "lg"
+  | "xl"
+  | "xxl"
+  | "x3"
+  | "x4"
+  | "x8"
+  | "x9";
+
+// Mapped Color & Size types
+type Color = { [k in Colors]: string };
+type Size = {
+  font: { [k in Sizes]?: string };
+  space: { [k in Sizes]?: string };
+};
+
 declare module "styled-components" {
-  export interface DefaultTheme {
-    borderRadius: string;
-    palette: {
-      common: {
-        black: string;
-        white: string;
-      };
-      primary: IPalette;
-      secondary: IPalette;
-    };
-  }
+  export type DefaultTheme = {
+    color: Color;
+    size: Size;
+    shadow: string;
+  };
 }
