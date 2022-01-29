@@ -1,8 +1,9 @@
 import React from "react";
-import Main from "../common/main/Main";
+
 import Sidebar from "../common/aside/Sidebar";
 import LayoutWrapper from "./LayoutWrapper";
 import Home from "../routes/home/Home";
+import Main from "../common/main/Main";
 
 type LayoutProps = {
   children: JSX.Element;

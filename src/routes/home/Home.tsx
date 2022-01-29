@@ -1,10 +1,10 @@
 import React from "react";
-import { DailyWeather } from "../../components/dailyWeather/DailyWeather";
+import DailyWeatherList from "../../components/dailyWeatherList/DailyWeatherList";
 
 const Home = () => {
   return (
     <>
-      <DailyWeather />
+      <DailyWeatherList />
     </>
   );
 };
