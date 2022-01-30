@@ -1,9 +1,13 @@
 import styled from "styled-components";
+import { ParagraphMd } from "../../../common/text/paragraph/ParagraphStyled";
 
 const DailyWeatherWrapper = styled.li`
-  height: 200px;
-  width: 100px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.color.blueBase};
+  padding: ${({ theme }) => `${theme.size.space.lg} ${theme.size.space.xl}`};
+
+  ${ParagraphMd} {
+    white-space: wrap;
+  }
 `;
 
 export default DailyWeatherWrapper;

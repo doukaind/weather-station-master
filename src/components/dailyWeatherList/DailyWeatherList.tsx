@@ -10,6 +10,8 @@ const DailyWeatherList = () => {
       <DailyWeather />
       <DailyWeather />
       <DailyWeather />
+      <DailyWeather />
+      <DailyWeather />
     </DailyWeatherListWrapper>
   );
 };
