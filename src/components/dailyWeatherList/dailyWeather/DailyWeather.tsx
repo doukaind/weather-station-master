@@ -5,12 +5,10 @@ import DailyWeatherWrapper from "./DailyWeatherWrapper";
 export const DailyWeather = () => {
   return (
     <DailyWeatherWrapper>
-      <Paragraph>aaaaaaaaaaaaaaaaaaaaaaaaa</Paragraph>
-      <div>aa</div>
-      <div>aa</div>
-      <div>aa</div>
-      <div>aa</div>
-      <div>aa</div>
+      <Paragraph>Sun. 7 Jun</Paragraph>
+      <Paragraph>Icon</Paragraph>
+      <Paragraph>16 C</Paragraph>
+      <Paragraph>11 C</Paragraph>
     </DailyWeatherWrapper>
   );
 };
