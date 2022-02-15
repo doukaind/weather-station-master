@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const DegreeTypesWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: right;
 `;
 
 export default DegreeTypesWrapper;

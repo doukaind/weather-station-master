@@ -5,8 +5,8 @@ import DegreesTypeWrapper from "./DegreeTypesWrapper";
 const DegreesType = () => {
   return (
     <DegreesTypeWrapper>
-      <ButtonCircle>°C</ButtonCircle>
-      <ButtonCircle>°F</ButtonCircle>
+      <ButtonCircle active={false}>°C</ButtonCircle>
+      <ButtonCircle active={true}>°F</ButtonCircle>
     </DegreesTypeWrapper>
   );
 };
