@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const DegreeTypesWrapper = styled.div`
+const TemperatureTypesWrapper = styled.div`
   display: flex;
   justify-content: right;
 `;
 
-export default DegreeTypesWrapper;
+export default TemperatureTypesWrapper;
