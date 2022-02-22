@@ -2,26 +2,42 @@ import React, { useEffect, useRef } from "react";
 import ButtonCircle from "./ButtonCircle";
 import DegreesTypeWrapper from "./TemperatureTypesWrapper";
 import { connect } from "react-redux";
-import { getDegreeType } from "../../actions";
+import { switchDegreeType } from "../../actions";
 
 const TemperatureType = (props: any) => {
   const isMounted = useRef(false);
   useEffect(() => {
-    console.log("PROPS: ", props);
+    props.switchDegreeType();
     if (isMounted.current) {
       isMounted.current = true;
+      props.getDegreeType();
     }
   }, []);
+
+  const switchTemperatureType = () => {
+    props.switchDegreeType();
+  };
   return (
     <DegreesTypeWrapper>
-      <ButtonCircle active={false}>°C</ButtonCircle>
-      <ButtonCircle active={true}>°F</ButtonCircle>
+      <ButtonCircle
+        onClick={(e: any) => props.switchDegreeType()}
+        active={props.temperature}
+      >
+        °C
+      </ButtonCircle>
+      <ButtonCircle
+        onClick={(e: any) => props.switchDegreeType()}
+        active={!props.temperature}
+      >
+        °F
+      </ButtonCircle>
     </DegreesTypeWrapper>
   );
 };
 
-const mapStateToProps = (state: any) => {
-  return state;
+const mapStateToProps = ({ temperature }: any) => {
+  // console.log("STATE: ", state);
+  return { temperature };
 };
 
-export default connect(mapStateToProps, { getDegreeType })(TemperatureType);
+export default connect(mapStateToProps, { switchDegreeType })(TemperatureType);

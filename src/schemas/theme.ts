@@ -20,9 +20,9 @@ const theme: DefaultTheme = {
       lg: "1.125rem", // 18px
       xl: "1.5rem", // 24px
       xxl: "2.25rem", // 36px
-      x3: "3rem", // 48px
-      x4: "4rem", // 64px
-      x9: "9rem", // 144px
+      xxxl: "3rem", // 48px
+      xxxxl: "4rem", // 64px
+      xxxxxl: "9rem", // 144px
     },
     space: {
       xs: "0.5rem", // 8px,
@@ -31,9 +31,9 @@ const theme: DefaultTheme = {
       lg: "1.125rem", //18px
       xl: "1.375rem", // 22px
       xxl: "2rem", // 32px,
-      x3: "3rem", // 48px
-      x4: "4rem", // 64px
-      x8: "8rem", // 128px
+      xxxl: "3rem", // 48px
+      xxxxl: "4rem", // 64px
+      xxxxxl: "8rem", // 128px
     },
   },
   shadow: "0px 4px 4px 0px rgba(0,0,0,0.25)",

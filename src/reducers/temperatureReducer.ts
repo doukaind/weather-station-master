@@ -1,6 +1,9 @@
-const temperatureReducer = (state: any = [], action: Record<string, any>) => {
+const temperatureReducer = (
+  state: boolean = false,
+  action: Record<string, any>
+) => {
   switch (action.type) {
-    case "DEGREE_TYPE":
+    case "SWITCH_DEGREE_TYPE":
       return !state;
   }
   return state;

@@ -1,1 +1,1 @@
-export const DEGREE_TYPE = "DEGREE_TYPE";
+export const SWITCH_DEGREE_TYPE = "SWITCH_DEGREE_TYPE";

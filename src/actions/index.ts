@@ -1,5 +1,5 @@
-import { DEGREE_TYPE } from "../actionTypes/degrees";
+import { SWITCH_DEGREE_TYPE } from "../actionTypes/degrees";
 
-export const getDegreeType = () => ({
-  type: DEGREE_TYPE,
+export const switchDegreeType = () => ({
+  type: SWITCH_DEGREE_TYPE,
 });
