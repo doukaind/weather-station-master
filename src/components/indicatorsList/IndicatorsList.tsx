@@ -8,10 +8,10 @@ const IndicatorsList = () => {
     <>
       <Subtitle>Today's Highlight</Subtitle>
       <IndicatorsWrapper>
-        <Indicator />
-        <Indicator />
-        <Indicator />
-        <Indicator />
+        <Indicator name="Visibility" unit="miles" value={10} />
+        <Indicator name="Visibility" unit="miles" value={10} />
+        <Indicator name="Visibility" unit="miles" value={10} />
+        <Indicator name="Visibility" unit="miles" value={10} />
       </IndicatorsWrapper>
     </>
   );
