@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 type ParagraphMdProps = {
   secondary: boolean;
+  third: boolean;
 };
 
 export const ParagraphMd = styled.p<ParagraphMdProps>`
@@ -9,6 +10,12 @@ export const ParagraphMd = styled.p<ParagraphMdProps>`
 
   color: ${({ secondary, theme }) =>
     secondary ? theme.color.greyBase : theme.color.greyLight};
+
+  ${({ third, theme }) =>
+    third &&
+    `
+    color: ${theme.color.greyDark};
+  `}
 
   margin-bottom: ${({ theme }) => theme.size.space.sm};
 `;

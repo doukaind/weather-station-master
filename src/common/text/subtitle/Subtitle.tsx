@@ -1,8 +1,18 @@
 import React from "react";
 import { SubtitleBase } from "./SubtitleStyled";
 
-const Subtitle = ({ children }: any) => {
-  return <SubtitleBase secondary={false}>Today's Highlights</SubtitleBase>;
+export type SubtitleProps = {
+  as: any;
+  secondary: boolean;
+  children: React.ReactNode;
+};
+
+const Subtitle = ({ as, children, secondary }: any) => {
+  return (
+    <SubtitleBase as={as} secondary={false}>
+      {children}
+    </SubtitleBase>
+  );
 };
 
 export default Subtitle;
