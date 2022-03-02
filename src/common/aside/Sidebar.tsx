@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navigation from "../navigation/Navigation";
 import { Search } from "../navigation/Search";
 import { SidebarHead } from "./SidebarHead";
@@ -15,7 +15,14 @@ import Paragraph from "../text/paragraph/Paragraph";
 import { ParagraphLg } from "../text/paragraph/ParagraphStyled";
 import { SidebarLocation } from "./SidebarLocation";
 import { MdLocationOn } from "react-icons/md";
-const Sidebar = () => {
+import { fetchLocation } from "../../actions";
+import { connect } from "react-redux";
+const Sidebar = (props: any) => {
+  console.log("PROPS: ", props);
+
+  useEffect(() => {
+    props.fetchLocation();
+  });
   return (
     <SidebarWrapper>
       <SidebarHead>
@@ -45,6 +52,9 @@ const Sidebar = () => {
   );
 };
 
-const mapStateToProps = (state: any) => {};
+const mapStateToProps = (state: any) => {
+  console.log("STATE: ", state);
+  return state;
+};
 
-export default Sidebar;
+export default connect(mapStateToProps, { fetchLocation })(Sidebar);

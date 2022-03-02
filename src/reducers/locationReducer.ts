@@ -3,8 +3,8 @@ export const fetchLocation = (
   action: Record<string, any>
 ) => {
   switch (action.type) {
-    case "SWITCH_DEGREE_TYPE":
-      return !state;
+    case "FETCH_LOCATION":
+      return state;
   }
   return state;
 };
