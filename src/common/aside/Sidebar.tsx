@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Navigation from "../navigation/Navigation";
 import { Search } from "../navigation/Search";
 import { SidebarHead } from "./SidebarHead";
@@ -20,8 +20,12 @@ import { connect } from "react-redux";
 const Sidebar = (props: any) => {
   console.log("PROPS: ", props);
 
+  const isLoaded = useRef<boolean>(false);
   useEffect(() => {
-    props.fetchLocation();
+    if (!isLoaded.current) {
+      isLoaded.current = true;
+      props.fetchLocation();
+    }
   });
   return (
     <SidebarWrapper>

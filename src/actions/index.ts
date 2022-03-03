@@ -9,10 +9,7 @@ export const switchDegreeType = () => ({
 
 export const fetchLocation = () => async (dispatch: any) => {
   // console.log("ERROR: ", `${URL_PROXY}${URL_API}/523920`");
-  const response = await fetchLocationSelected.get("", {
-    headers: {
-      // "Access-Control-Allow-Origin": "*",
-    },
-  });
-  dispatch({ type: FETCH_LOCATION, payload: response });
+  const response = await fetchLocationSelected.get("523920");
+  console.log("WHAT IS THE RESPONSE: ", response);
+  dispatch({ type: FETCH_LOCATION, payload: response.data });
 };
