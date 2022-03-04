@@ -15,16 +15,18 @@ import Paragraph from "../text/paragraph/Paragraph";
 import { ParagraphLg } from "../text/paragraph/ParagraphStyled";
 import { SidebarLocation } from "./SidebarLocation";
 import { MdLocationOn } from "react-icons/md";
-import { fetchLocation } from "../../actions";
+
 import { connect } from "react-redux";
-const Sidebar = (props: any) => {
-  console.log("PROPS: ", props);
+import { fetchCityParameters, fetchLocation } from "../../actions";
+const Sidebar = ({ city, fetchLocation, fetchCityParameters }: any) => {
+  console.log("PROPS: ", city);
 
   const isLoaded = useRef<boolean>(false);
   useEffect(() => {
     if (!isLoaded.current) {
       isLoaded.current = true;
-      props.fetchLocation();
+      fetchLocation();
+      fetchCityParameters();
     }
   });
   return (
@@ -45,10 +47,10 @@ const Sidebar = (props: any) => {
             Today •
           </Paragraph>
           <SidebarLocation>
-            <MdLocationOn />
             <Paragraph as={ParagraphLg} third>
-              Warsaw
+              {city}
             </Paragraph>
+            <MdLocationOn />
           </SidebarLocation>
         </AsideFooter>
       </>
@@ -58,7 +60,9 @@ const Sidebar = (props: any) => {
 
 const mapStateToProps = (state: any) => {
   console.log("STATE: ", state);
-  return state;
+  return { city: state.fetchLocation.title };
 };
 
-export default connect(mapStateToProps, { fetchLocation })(Sidebar);
+export default connect(mapStateToProps, { fetchLocation, fetchCityParameters })(
+  Sidebar
+);
