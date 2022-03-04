@@ -1,10 +1,12 @@
+import { initialState } from "./locationReducer";
+
 const temperatureReducer = (
-  state: boolean = false,
+  state = initialState,
   action: Record<string, any>
 ) => {
   switch (action.type) {
     case "SWITCH_DEGREE_TYPE":
-      return !state;
+      return { ...state, isCelcius: true };
   }
   return state;
 };

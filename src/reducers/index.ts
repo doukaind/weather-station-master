@@ -5,6 +5,6 @@ import temperatureReducer from "./temperatureReducer";
 
 export default combineReducers({
   temperature: temperatureReducer,
-  fetchLocation,
-  fetchCityParametersReducer,
+  location: fetchLocation,
+  // fetchCityParametersReducer,
 });

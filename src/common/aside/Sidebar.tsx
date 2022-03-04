@@ -60,7 +60,7 @@ const Sidebar = ({ city, fetchLocation, fetchCityParameters }: any) => {
 
 const mapStateToProps = (state: any) => {
   console.log("STATE: ", state);
-  return { city: state.fetchLocation.title };
+  return { city: state.location.title };
 };
 
 export default connect(mapStateToProps, { fetchLocation, fetchCityParameters })(
