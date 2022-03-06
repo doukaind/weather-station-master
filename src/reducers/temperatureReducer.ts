@@ -6,7 +6,7 @@ const temperatureReducer = (
 ) => {
   switch (action.type) {
     case "SWITCH_DEGREE_TYPE":
-      return { ...state, isCelcius: true };
+      return { ...state, isCelsius: true };
   }
   return state;
 };

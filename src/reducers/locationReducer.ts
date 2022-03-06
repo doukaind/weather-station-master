@@ -8,7 +8,7 @@ export const initialState = {
   days: {},
   currentGeo: {},
   error: false,
-  isCelcius: true,
+  isCelsius: true,
 };
 
 export const fetchLocation = (

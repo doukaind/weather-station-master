@@ -9,7 +9,7 @@ import {
 } from "./SidebarTextDegree";
 
 import SidebarWrapper from "./SidebarWrapper";
-import { getNameDegree } from "../../utils/converters";
+import { getNameDegree, setConvertDegrees } from "../../utils/converters";
 import { AsideFooter } from "./SidebarFooter";
 import Paragraph from "../text/paragraph/Paragraph";
 import { ParagraphLg } from "../text/paragraph/ParagraphStyled";
@@ -18,10 +18,22 @@ import { MdLocationOn } from "react-icons/md";
 
 import { connect } from "react-redux";
 import { fetchCityParameters, fetchLocation } from "../../actions";
-const Sidebar = ({ city, fetchLocation, fetchCityParameters }: any) => {
-  console.log("PROPS: ", city);
+import intNumber from "../../utils/intNumber";
+const Sidebar = ({
+  location,
+  days,
+  fetchLocation,
+  isCelsius,
+  fetchCityParameters,
+}: any) => {
+  console.log("PROPS: ", days);
 
   const isLoaded = useRef<boolean>(false);
+
+  const convertDegrees = setConvertDegrees(
+    intNumber(days.today?.the_temp),
+    isCelsius
+  );
   useEffect(() => {
     if (!isLoaded.current) {
       isLoaded.current = true;
@@ -34,33 +46,35 @@ const Sidebar = ({ city, fetchLocation, fetchCityParameters }: any) => {
       <SidebarHead>
         <Navigation />
       </SidebarHead>
-      <>
-        <SidebarImage src="assets/images/Snow.png" />
-        <SidebarTextDegree>
-          77
-          <SidebarTextDegreeSecondary>
-            {getNameDegree(true)}
-          </SidebarTextDegreeSecondary>
-        </SidebarTextDegree>
-        <AsideFooter>
-          <Paragraph as={ParagraphLg} third>
-            Today •
-          </Paragraph>
-          <SidebarLocation>
+      {days && (
+        <>
+          <SidebarImage src="assets/images/Snow.png" />
+          <SidebarTextDegree>
+            {convertDegrees}
+            <SidebarTextDegreeSecondary>
+              {getNameDegree(isCelsius)}
+            </SidebarTextDegreeSecondary>
+          </SidebarTextDegree>
+          <AsideFooter>
             <Paragraph as={ParagraphLg} third>
-              {city}
+              Today •
             </Paragraph>
-            <MdLocationOn />
-          </SidebarLocation>
-        </AsideFooter>
-      </>
+            <SidebarLocation>
+              <Paragraph as={ParagraphLg} third>
+                {location.city}
+              </Paragraph>
+              <MdLocationOn />
+            </SidebarLocation>
+          </AsideFooter>
+        </>
+      )}
     </SidebarWrapper>
   );
 };
 
 const mapStateToProps = (state: any) => {
   console.log("STATE: ", state);
-  return { city: state.location.title };
+  return state.location;
 };
 
 export default connect(mapStateToProps, { fetchLocation, fetchCityParameters })(
