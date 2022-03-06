@@ -19,6 +19,8 @@ import { MdLocationOn } from "react-icons/md";
 import { connect } from "react-redux";
 import { fetchCityParameters, fetchLocation } from "../../actions";
 import intNumber from "../../utils/intNumber";
+import { formatDate } from "../../utils/formatDate";
+import generateImage from "../../utils/generateImage";
 const Sidebar = ({
   location,
   days,
@@ -38,7 +40,6 @@ const Sidebar = ({
     if (!isLoaded.current) {
       isLoaded.current = true;
       fetchLocation();
-      fetchCityParameters();
     }
   });
   return (
@@ -46,9 +47,9 @@ const Sidebar = ({
       <SidebarHead>
         <Navigation />
       </SidebarHead>
-      {days && (
+      {Object.keys(days).length !== 0 && (
         <>
-          <SidebarImage src="assets/images/Snow.png" />
+          <SidebarImage src={generateImage(days.today.weather_state_name)} />
           <SidebarTextDegree>
             {convertDegrees}
             <SidebarTextDegreeSecondary>
@@ -57,13 +58,13 @@ const Sidebar = ({
           </SidebarTextDegree>
           <AsideFooter>
             <Paragraph as={ParagraphLg} third>
-              Today •
+              Today • {formatDate(days.today.applicable_date)}
             </Paragraph>
             <SidebarLocation>
+              <MdLocationOn />
               <Paragraph as={ParagraphLg} third>
                 {location.city}
               </Paragraph>
-              <MdLocationOn />
             </SidebarLocation>
           </AsideFooter>
         </>
@@ -73,10 +74,7 @@ const Sidebar = ({
 };
 
 const mapStateToProps = (state: any) => {
-  console.log("STATE: ", state);
   return state.location;
 };
 
-export default connect(mapStateToProps, { fetchLocation, fetchCityParameters })(
-  Sidebar
-);
+export default connect(mapStateToProps, { fetchLocation })(Sidebar);

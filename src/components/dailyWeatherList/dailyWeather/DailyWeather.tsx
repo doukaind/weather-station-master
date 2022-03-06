@@ -1,14 +1,30 @@
 import React from "react";
 import Paragraph from "../../../common/text/paragraph/Paragraph";
+import { getNameDegree, setConvertDegrees } from "../../../utils/converters";
+import { DailyImage } from "./DailyImage";
 import DailyWeatherWrapper from "./DailyWeatherWrapper";
 
-export const DailyWeather = () => {
+export const DailyWeather = ({
+  nameDay,
+  imgSrc,
+  maxTemp,
+  minTemp,
+  isCelsius,
+}: any) => {
+  const nameDegrees = getNameDegree(isCelsius);
   return (
     <DailyWeatherWrapper>
-      <Paragraph>Sun. 7 Jun</Paragraph>
-      <Paragraph>Icon</Paragraph>
-      <Paragraph>16 C</Paragraph>
-      <Paragraph>11 C</Paragraph>
+      <Paragraph>{nameDay}</Paragraph>
+      <DailyImage src={imgSrc} alt={nameDay} />
+
+      <Paragraph>
+        {setConvertDegrees(minTemp, isCelsius)}
+        {nameDegrees}
+      </Paragraph>
+      <Paragraph>
+        {setConvertDegrees(maxTemp, isCelsius)}
+        {nameDegrees}
+      </Paragraph>
     </DailyWeatherWrapper>
   );
 };

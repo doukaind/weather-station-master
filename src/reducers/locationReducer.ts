@@ -18,7 +18,8 @@ export const fetchLocation = (
   console.log("THIS IS STATE!: ", state);
   switch (action.type) {
     case FETCH_LOCATION:
-      const { consolidated_weather } = action?.payload;
+      const { consolidated_weather, title } = action?.payload;
+
       const weekWithoutToday = consolidated_weather.filter(
         (_: any, i: any) => i !== 0
       );
@@ -30,6 +31,9 @@ export const fetchLocation = (
       return {
         ...state,
         days: { week: weekWithoutToday, today: consolidated_weather[0] },
+        location: {
+          city: title,
+        },
       };
     default:
       return state;
