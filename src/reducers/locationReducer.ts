@@ -35,6 +35,11 @@ export const fetchLocation = (
           city: title,
         },
       };
+    case "SWITCH_DEGREE_TYPE":
+      return {
+        ...state,
+        isCelsius: !state.isCelsius,
+      };
     default:
       return state;
   }

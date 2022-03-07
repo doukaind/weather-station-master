@@ -7,7 +7,7 @@ import intNumber from "../../utils/intNumber";
 import { DailyWeather } from "./dailyWeather/DailyWeather";
 import DailyWeatherListWrapper from "./DailyWeatherListWrapper";
 
-const DailyWeatherList = ({ week }: any) => {
+const DailyWeatherList = ({ week, isCelsius }: any) => {
   console.log("WEEK: ", week);
 
   const isLoaded = useRef<boolean>(false);
@@ -27,6 +27,7 @@ const DailyWeatherList = ({ week }: any) => {
             maxTemp={intNumber(day.max_temp)}
             minTemp={intNumber(day.min_temp)}
             imgSrc={generateImage(day.weather_state_name)}
+            isCelsius={isCelsius}
           />
         );
       })}
@@ -36,7 +37,10 @@ const DailyWeatherList = ({ week }: any) => {
 
 const mapStateToProsp = (state: any) => {
   console.log("daily weather state: ", state);
-  return state.location.days;
+  return {
+    week: state.location.days.week,
+    isCelsius: state.location.isCelsius,
+  };
 };
 
 export default connect(mapStateToProsp, { fetchLocation })(DailyWeatherList);
