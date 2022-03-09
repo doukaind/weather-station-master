@@ -71,6 +71,7 @@ const Sidebar = ({
     if (!isLoaded.current) {
       isLoaded.current = true;
       fetchLocation();
+      geoLocation();
     }
   });
   return (

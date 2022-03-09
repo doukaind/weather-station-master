@@ -7,8 +7,10 @@ import {
 } from "../actionTypes/location";
 import {
   fetchCityParametersApi,
+  fetchLocationSearch,
   fetchLocationSelectedApi,
 } from "../apis/repository";
+import useLocation from "../hooks/useLocation";
 import { URL_API_SEARCH } from "../schemas/api";
 
 export const switchDegreeType = () => ({
@@ -39,13 +41,21 @@ export const setCoordsCurrent = (payload: any) => ({
 });
 
 export const fetchSearch = () => async (dispatch: any, getState: any) => {
-  console.log("what is state: ", getState);
-  const { searchCity } = getState();
+  console.log("what is state: ", getState, getState());
+
+  const { searchCity, currentGeo } = getState().location;
+
+  console.log("and we have searchCIty: ", searchCity, currentGeo);
   try {
     const URL_SEARCH =
-      typeof searchCity === "string"
+      searchCity !== ""
         ? `${URL_API_SEARCH}?query=${searchCity}`
-        : `${URL_API_SEARCH}?lattlong=${searchCity.latitude},${searchCity.longitude}`;
+        : `${URL_API_SEARCH}?lattlong=${currentGeo.latitude},${currentGeo.longitude}`;
+
+    console.log("URL_SEARCH: ", URL_SEARCH);
+    const response = await fetchLocationSearch(URL_SEARCH).get("");
+
+    console.log("what is the response?: ", response);
   } catch (error) {
     throw error;
   }
