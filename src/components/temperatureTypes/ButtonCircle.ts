@@ -10,7 +10,7 @@ const ButtonCircle = styled.button`
   cursor: pointer;
   border: none;
   padding: 0;
-  margin: 0 ${({ theme }) => theme.size.space.sm};
+  margin-left: ${({ theme }) => theme.size.space.sm};
   font-size: ${({ theme }) => theme.size.font.lg};
   background-color: ${({ theme }) => theme.color.stateBase};
   color: ${({ theme }) => theme.color.greyLight};

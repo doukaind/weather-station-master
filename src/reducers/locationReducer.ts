@@ -1,4 +1,9 @@
-import { FETCH_LOCATION } from "../actionTypes/location";
+import { SWITCH_DEGREE_TYPE } from "../actionTypes/degrees";
+import {
+  FETCH_LOCATION,
+  SEARCH_CITY,
+  SET_COORDS,
+} from "../actionTypes/location";
 
 export const initialState = {
   searchCity: "",
@@ -35,11 +40,23 @@ export const fetchLocation = (
           city: title,
         },
       };
-    case "SWITCH_DEGREE_TYPE":
+    case SWITCH_DEGREE_TYPE:
       return {
         ...state,
         isCelsius: !state.isCelsius,
       };
+    case SEARCH_CITY:
+      return {
+        ...state,
+        searchCity: action.payload,
+      };
+    case SET_COORDS:
+      console.log("SO AM I HERE OR NOT?");
+      return {
+        ...state,
+        currentGeo: action.payload,
+      };
+
     default:
       return state;
   }

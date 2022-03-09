@@ -9,3 +9,8 @@ export const fetchCityParametersApi = (city: string) =>
   axios.create({
     baseURL: `${URL_PROXY}${URL_API_SEARCH}?query=${city}`,
   });
+
+export const fetchLocationSearch = (location: any) =>
+  axios.create({
+    baseURL: `${URL_PROXY}${location}`,
+  });

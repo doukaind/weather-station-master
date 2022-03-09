@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const MainWrapper = styled.section`
+  padding-top: 42px;
+  padding-bottom: 42px;
   background-color: ${({ theme }) => theme.color.blueDark};
-  padding-top: ${({ theme }) => theme.size.space.x3};
 `;
 
 export default MainWrapper;

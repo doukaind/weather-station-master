@@ -1,2 +1,4 @@
 export const FETCH_LOCATION = "FETCH_LOCATION";
 export const FETCH_CITY_PARAMETERS = "FETCH_CITY_PARAMETERS";
+export const SEARCH_CITY = "SEARCH_CITY";
+export const SET_COORDS = "SET_COORDS";

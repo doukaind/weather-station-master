@@ -9,7 +9,7 @@ type MainProps = {
 const Main: React.FC<MainProps> = ({ children }) => {
   return (
     <MainWrapper>
-      <MainContainer>{children}</MainContainer>;
+      <MainContainer>{children}</MainContainer>
     </MainWrapper>
   );
 };
