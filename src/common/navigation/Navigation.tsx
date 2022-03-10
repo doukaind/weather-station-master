@@ -8,8 +8,10 @@ import { fetchListSearch } from "../../apis/repository";
 import { ListSearch } from "./SearchList";
 import { ItemSearch } from "./ItemSearch";
 import Loader from "../loader/Loader";
+import { setSearchCity } from "../../actions";
+import { connect } from "react-redux";
 
-const Navigation = () => {
+const Navigation = ({ searchCity }: any) => {
   const [active, setActive] = useState(false);
   const [search, setSearch] = useState("");
   const [loadCity, setLoadCity] = useState(false);
@@ -27,9 +29,10 @@ const Navigation = () => {
 
   const handleSelectCity = (city: any) => () => {
     // handleSearchCity(city)
+    searchCity(city);
     // handleCelsius()
-    // setActive(false)
-    // handleClear()
+    setActive(false);
+    handleClear();
   };
   const handleSubmit = async () => {
     setLoadCity(true);
@@ -41,6 +44,11 @@ const Navigation = () => {
         setLoadCity(false);
       }, 5000);
     }
+  };
+
+  const handleClear = () => {
+    setSearch("");
+    setListSearch([]);
   };
 
   return (
@@ -78,5 +86,8 @@ const Navigation = () => {
     </>
   );
 };
+const mapStateToProps = (state: any) => {
+  return state;
+};
 
-export default Navigation;
+export default connect(null, { searchCity: setSearchCity })(Navigation);
