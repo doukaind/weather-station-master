@@ -30,11 +30,14 @@ export const fetchCityParameters = () => async (dispatch: any) => {
   dispatch({ type: FETCH_CITY_PARAMETERS, payload: response.data });
 };
 
-export const setSearchCity = (payload: any) => ({
-  type: SEARCH_CITY,
-  payload,
-});
-
+export const setSearchCity = (payload: any) => async (dispatch: any) => {
+  const responseCity = (await fetchCityParametersApi(payload).get("")).data;
+  const response = await fetchLocationSelectedApi.get(
+    responseCity.woeid as string
+  );
+  console.log("RESPONSE: ", response);
+  dispatch({ type: FETCH_LOCATION, payload: response.data });
+};
 export const setCoordsCurrent = (payload: any) => ({
   type: SET_COORDS,
   payload,
