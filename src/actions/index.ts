@@ -31,9 +31,11 @@ export const fetchCityParameters = () => async (dispatch: any) => {
 };
 
 export const setSearchCity = (payload: any) => async (dispatch: any) => {
-  const responseCity = (await fetchCityParametersApi(payload).get("")).data;
+  const responseCity = (await fetchCityParametersApi(payload).get("")).data[0];
+
+  console.log("response city: ", responseCity, responseCity.woeid);
   const response = await fetchLocationSelectedApi.get(
-    responseCity.woeid as string
+    responseCity.woeid.toString()
   );
   console.log("RESPONSE: ", response);
   dispatch({ type: FETCH_LOCATION, payload: response.data });

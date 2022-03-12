@@ -38,11 +38,10 @@ const Navigation = ({ searchCity }: any) => {
     setLoadCity(true);
     if (search.length >= 3) {
       // console.log("what is the response? : ", response);
-      setTimeout(async () => {
-        const { data } = await fetchListSearch(search).get("");
-        setListSearch(data);
-        setLoadCity(false);
-      }, 5000);
+
+      const { data } = await fetchListSearch(search).get("");
+      setListSearch(data);
+      setLoadCity(false);
     }
   };
 
