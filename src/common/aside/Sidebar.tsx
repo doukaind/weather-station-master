@@ -39,8 +39,6 @@ const Sidebar = ({
   searchCity,
   fetchSearch,
 }: any) => {
-  "PROPS: ", days, "current geo: ", currentGeo);
-
   const isLoaded = useRef<boolean>(false);
   const [alert, setAlert] = useState(false);
   const { geoLocation } = useLocation();

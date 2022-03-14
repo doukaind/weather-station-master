@@ -19,7 +19,6 @@ const Navigation = ({ searchCity }: any) => {
 
   const handleChange = (e: any) => setSearch(e.target.value);
   const handleOpen = () => {
-    "CLICKED");
     setActive(true);
   };
 
@@ -37,8 +36,6 @@ const Navigation = ({ searchCity }: any) => {
   const handleSubmit = async () => {
     setLoadCity(true);
     if (search.length >= 3) {
-      // "what is the response? : ", response);
-
       const { data } = await fetchListSearch(search).get("");
       setListSearch(data);
       setLoadCity(false);

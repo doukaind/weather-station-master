@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { switchDegreeType } from "../../actions";
 
 const TemperatureType = ({ isCelsius, switchDegreeType }: any) => {
-  "IS CELSIUS? ", isCelsius);
   const isMounted = useRef(false);
   useEffect(() => {
     if (isMounted.current) {
@@ -32,7 +31,6 @@ const TemperatureType = ({ isCelsius, switchDegreeType }: any) => {
 };
 
 const mapStateToProps = ({ location }: any) => {
-  // "STATE: ", state);
   return { isCelsius: location.isCelsius };
 };
 
