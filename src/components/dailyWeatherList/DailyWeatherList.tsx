@@ -8,7 +8,7 @@ import { DailyWeather } from "./dailyWeather/DailyWeather";
 import DailyWeatherListWrapper from "./DailyWeatherListWrapper";
 
 const DailyWeatherList = ({ week, isCelsius }: any) => {
-  console.log("WEEK: ", week);
+  "WEEK: ", week);
 
   const isLoaded = useRef<boolean>(false);
   useEffect(() => {
@@ -36,7 +36,7 @@ const DailyWeatherList = ({ week, isCelsius }: any) => {
 };
 
 const mapStateToProsp = (state: any) => {
-  console.log("daily weather state: ", state);
+  "daily weather state: ", state);
   return {
     week: state.location.days.week,
     isCelsius: state.location.isCelsius,

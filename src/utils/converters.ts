@@ -9,6 +9,6 @@ export const getNameDegree = (isCelsius: boolean) => {
 };
 
 export const setConvertDegrees = (temp: any, isCelsius: boolean) => {
-  console.log(temp, isCelsius);
+  temp, isCelsius);
   return isCelsius ? temp : intNumber(toFahrenheit(temp));
 };

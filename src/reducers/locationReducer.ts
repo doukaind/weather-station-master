@@ -20,7 +20,7 @@ export const fetchLocation = (
   state = initialState,
   action: Record<string, any>
 ) => {
-  console.log("THIS IS STATE!: ", state);
+  "THIS IS STATE!: ", state);
   switch (action.type) {
     case FETCH_LOCATION:
       const { consolidated_weather, title } = action?.payload;
@@ -28,8 +28,8 @@ export const fetchLocation = (
       const weekWithoutToday = consolidated_weather.filter(
         (_: any, i: any) => i !== 0
       );
-      // state = console.log("AM I HERE?");
-      console.log("WHAT IS AN OBJECT: ", state, {
+      // state = "AM I HERE?");
+      "WHAT IS AN OBJECT: ", state, {
         ...state,
         days: { week: weekWithoutToday, today: consolidated_weather[0] },
       });
@@ -51,7 +51,7 @@ export const fetchLocation = (
         searchCity: action.payload,
       };
     case SET_COORDS:
-      console.log("SO AM I HERE OR NOT?");
+      "SO AM I HERE OR NOT?");
       return {
         ...state,
         currentGeo: action.payload,

@@ -8,7 +8,7 @@ const useLocation = () => {
   const dispatch = useDispatch();
 
   const geoLocation = () => {
-    console.log("IS GEO IN NAVIGATOR? ", "geolocation" in navigator);
+    "IS GEO IN NAVIGATOR? ", "geolocation" in navigator);
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -17,13 +17,13 @@ const useLocation = () => {
             longitude: position.coords.longitude,
           };
 
-          console.log("what are coords?: ", coords);
+          "what are coords?: ", coords);
           dispatch(setSearchCity(coords));
           dispatch(setCoordsCurrent(coords));
           setLoadingCurrent(false);
         },
         () => {
-          console.log("so here or not?");
+          "so here or not?");
           dispatch(setSearchCity("warsaw"));
           setLoadingCurrent(false);
         }

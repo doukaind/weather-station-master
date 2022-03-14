@@ -12,7 +12,7 @@ import { connect } from "react-redux";
 import { fetchLocation } from "../../actions";
 import intNumber, { numberOneFixed } from "../../utils/intNumber";
 const IndicatorsList = ({ today }: any) => {
-  console.log("today: ", today);
+  "today: ", today);
   const isLoaded = useRef<boolean>(false);
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const IndicatorsList = ({ today }: any) => {
 };
 
 const mapStateToProps = (state: any) => {
-  console.log("STATE: ", state);
+  "STATE: ", state);
   return state.location.days;
 };
 
